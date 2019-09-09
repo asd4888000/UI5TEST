@@ -1,0 +1,16 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ],
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "UI5TEST",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
