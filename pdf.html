@@ -1,0 +1,51 @@
+<html ng-app>
+<style>
+  #JerryInput {
+  	background-color: lightblue;
+  	height: 500px;
+    width: 500px;
+    font-size: 150%;
+    margin-bottom: 10px;
+  }
+</style>
+</style>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="lib/angular.js"></script>
+    <script src="lib/jspdf.debug.js"></script>
+    <script>
+      function JerryController($scope){
+        $scope.pdfsource = ["In programming languages, type erasure refers to the compile-time",
+        "process by which explicit type annotation are removed from a program,",
+        "before it is executed at run-time. Operational semantics that do not require",
+        "programs to be accompanied by types are called type-erasure",
+        "semantics, to be contrasted with type-passing semantics."
+        ];
+        $scope.pdfsource.slice();
+        $scope.generatePDF = function() {
+          var pdf = new jsPDF();
+          for( var i = 0; i < this.pdfsource.length; i++){
+            pdf.text( 10,  10 * ( i + 1 ), this.pdfsource[i]);
+          }
+          pdf.save('i042416.pdf');
+        };
+    }
+    </script>
+  </head>
+  <body ng-controller="JerryController">
+    <div>
+      <div>
+      <a href="http://www.angular.com/">Angular.org</a>
+    </div>
+    <div>Author: I042416</div>
+    <div>2017-05-03 10:51PM</div>
+    <textarea readonly id="JerryInput" ng-model="pdfsource">
+
+    </textarea>
+    <form ng-submit="generatePDF()">
+      <input type="submit" value="Generate PDF">
+    </form>
+  </div>
+  </body>
+</html>
